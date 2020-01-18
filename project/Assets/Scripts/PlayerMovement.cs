@@ -4,25 +4,108 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
+    [Header("Move Properties")]
+    public float walkSpeed;
+    public float runSpeed;
+    public int walkInterval = 20;
+    public int runInterval = 15;
+    private int walkStep = 0;
     private CharacterController characterController;
+    private AudioSource walk;
+
+    [Header("Jump & Fall Properties")]
+    public float jumpHeight = 10.0f;
+    public float verticalVelocity = -2f;
+    public LayerMask groundMask;
+    public GameObject groundCheck = null;
+    private float groundDistance = 0.4f;
+    private float gravity = 9.8f;
+    private bool isGrounded = true;    
 
     public void Start()
     {
         characterController = GetComponent<CharacterController>();
+        walk = GetComponent<AudioSource>();
     }
 
     public void Update()
     {
         Move();
+        Jump();
     }
 
     void Move()
     {
+        float speed;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = runSpeed;
+        }
+        else
+        {
+            speed = walkSpeed;
+        }
+
         float moveH = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         float moveV = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
         Vector3 move = transform.right * moveH + transform.forward * moveV;
         characterController.Move(move);
+
+        StepNoise();
+    }
+
+    void Jump()
+    {
+        isGrounded = Physics.CheckSphere(groundCheck.transform.position, groundDistance, groundMask);
+
+        if (isGrounded && verticalVelocity < 0)
+        {
+            verticalVelocity = -2f;
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                verticalVelocity = jumpHeight;
+            }
+        }
+        else
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
+
+        Vector3 jumpVector = new Vector3(0, verticalVelocity, 0);
+        characterController.Move(jumpVector * Time.deltaTime);
+    }
+    void StepNoise()
+    {
+        float interval;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            interval = runInterval;
+        }
+        else
+        {
+            interval = walkInterval;
+        }
+
+        if (walkStep == interval)
+        {
+            if (isGrounded)
+            {
+                walk.Play();
+                walkStep++;
+            }
+        }
+        if (walkStep > interval)
+        {
+            walkStep = 0;
+        }
+
+        if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
+        {
+            walkStep++;
+        }
     }
 }

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{07214ADF-DF5F-2A0B-7445-7A195E7E8C4B}</ProjectGuid>
+    <ProjectGuid>{7CA597AC-799E-2D81-E8A0-0EA9A568434E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -66,31 +66,31 @@
     <Compile Include="Assets\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/jinwo/OneDrive/바탕 화면/Unity Projects/Spot_the_Difference(prototype)/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/jinwo/Desktop/Unity Projects/Spot_the_Difference_prototype/project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/jinwo/OneDrive/바탕 화면/Unity Projects/Spot_the_Difference(prototype)/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/jinwo/Desktop/Unity Projects/Spot_the_Difference_prototype/project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/jinwo/OneDrive/바탕 화면/Unity Projects/Spot_the_Difference(prototype)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/jinwo/Desktop/Unity Projects/Spot_the_Difference_prototype/project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/jinwo/OneDrive/바탕 화면/Unity Projects/Spot_the_Difference(prototype)/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/jinwo/Desktop/Unity Projects/Spot_the_Difference_prototype/project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/jinwo/OneDrive/바탕 화면/Unity Projects/Spot_the_Difference(prototype)/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/jinwo/Desktop/Unity Projects/Spot_the_Difference_prototype/project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/jinwo/OneDrive/바탕 화면/Unity Projects/Spot_the_Difference(prototype)/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/jinwo/Desktop/Unity Projects/Spot_the_Difference_prototype/project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/jinwo/OneDrive/바탕 화면/Unity Projects/Spot_the_Difference(prototype)/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/jinwo/Desktop/Unity Projects/Spot_the_Difference_prototype/project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/jinwo/OneDrive/바탕 화면/Unity Projects/Spot_the_Difference(prototype)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/jinwo/Desktop/Unity Projects/Spot_the_Difference_prototype/project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/jinwo/OneDrive/바탕 화면/Unity Projects/Spot_the_Difference(prototype)/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/jinwo/Desktop/Unity Projects/Spot_the_Difference_prototype/project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
