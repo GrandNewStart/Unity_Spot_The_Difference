@@ -7,10 +7,14 @@ public class GameManagerLogic : MonoBehaviour
 {
     public float total;
     public Text total_Text;
+    public Text remainingShots;
+    public Text totalShots;
+    public Player player;
 
     private void Update()
     {
         total_Text.text = total.ToString();
+        remainingShots.text = player.shots.ToString();
 
         if (total == 0)
         {
@@ -21,5 +25,10 @@ public class GameManagerLogic : MonoBehaviour
     void StageClear()
     {
         
+    }
+
+    public void NoMoreShots()
+    {
+
     }
 }
