@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
         {
             Fire();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            manager.PauseMenu();
+        }
     }
 
     void Fire()
@@ -32,10 +36,14 @@ public class Player : MonoBehaviour
 
             if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Mathf.Infinity))
             {
-                Debug.Log(hit.transform.tag.ToString());
-                if (hit.transform.tag == "Answer")
+                if (hit.transform.tag == "Answer" && manager.total > 0)
                 {
-                    manager.total--;
+                    Answer answer = hit.transform.GetComponent<Answer>();
+                    if (!answer.found)
+                    {
+                        answer.found = true;
+                        manager.total--;
+                    }
                 }
             }
 
