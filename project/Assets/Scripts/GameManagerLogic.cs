@@ -16,6 +16,7 @@ public class GameManagerLogic : MonoBehaviour
     [Header("UI Elements")]
     public Canvas HUD;
     public Canvas stageClear;
+    public Canvas stageFail;
     public Canvas pauseMenu;
     public Text total_Text;
     public Text remainingShots_Text;
@@ -45,6 +46,10 @@ public class GameManagerLogic : MonoBehaviour
         if (stageClear != null)
         {
             stageClear.gameObject.SetActive(false);
+        }
+        if (stageFail != null)
+        {
+            stageFail.gameObject.SetActive(false);
         }
         if (pauseMenu != null)
         {
@@ -147,7 +152,11 @@ public class GameManagerLogic : MonoBehaviour
 
     public void NoMoreShots()
     {
-
+        if (total != 0)
+        {
+            stageFail.gameObject.SetActive(true);
+            Invoke("BackToMenu", 3.0f);
+        }
     }
 
     public void BackToMenu()

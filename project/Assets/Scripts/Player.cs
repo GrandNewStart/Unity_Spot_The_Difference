@@ -26,12 +26,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            if (shots < 1)
-            {
-                manager.NoMoreShots();
-                return;
-            }
-
             RaycastHit hit;
 
             if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, Mathf.Infinity))
@@ -50,6 +44,12 @@ public class Player : MonoBehaviour
             GameObject effect = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(effect, 0.5f);
             shots--;
+
+            if (shots < 1)
+            {
+                manager.NoMoreShots();
+                fireEnabled = false;
+            }
         }
     }
 }
