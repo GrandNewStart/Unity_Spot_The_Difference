@@ -7,11 +7,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Move Properties")]
     public float walkSpeed;
     public float runSpeed;
-    public int walkInterval = 20;
-    public int runInterval = 15;
     private int walkStep = 0;
     private CharacterController characterController;
     private AudioSource walk;
+    private bool moving = false;
 
     [Header("Jump & Fall Properties")]
     public float jumpHeight = 10.0f;
@@ -53,7 +52,16 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * moveH + transform.forward * moveV;
         characterController.Move(move);
 
-        StepNoise();
+        if (isGrounded && characterController.velocity.magnitude >2f && !walk.isPlaying)
+        {
+            walk.volume = Random.Range(0.5f, 1f);
+            walk.pitch = Random.Range(0.5f, 1.1f);
+            walk.Play();
+            if (speed == runSpeed)
+            {
+                walk.Play();
+            }
+        }
     }
 
     void Jump()
@@ -77,35 +85,4 @@ public class PlayerMovement : MonoBehaviour
         Vector3 jumpVector = new Vector3(0, verticalVelocity, 0);
         characterController.Move(jumpVector * Time.deltaTime);
     }
-    void StepNoise()
-    {
-        float interval;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            interval = runInterval;
-        }
-        else
-        {
-            interval = walkInterval;
-        }
-
-        if (walkStep == interval)
-        {
-            if (isGrounded)
-            {
-                walk.Play();
-                walkStep++;
-            }
-        }
-        if (walkStep > interval)
-        {
-            walkStep = 0;
-        }
-
-        if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
-        {
-            walkStep++;
-        }
-    }
-}
+ }

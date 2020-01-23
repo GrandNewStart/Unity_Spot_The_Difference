@@ -8,7 +8,7 @@ public class GameManagerLogic : MonoBehaviour
 {
     [Header("Gameplay Elements")]
     public float total;
-    public float time;
+    public int time;
     public int stage;
     public bool pauseEnabled = true;
     public bool paused = false;
@@ -23,8 +23,8 @@ public class GameManagerLogic : MonoBehaviour
     public Text totalShots_Text;
     public Text time_Text;
     public Player player;
-    private float remainingTime;
-    private int count = 0;
+    private int remainingTime;
+    private bool countingDown = false;
 
     private void Start()
     {
@@ -56,7 +56,6 @@ public class GameManagerLogic : MonoBehaviour
             pauseMenu.gameObject.SetActive(false);
         }
 
-        remainingTime = time;
         CountDown();
     }
 
@@ -81,18 +80,29 @@ public class GameManagerLogic : MonoBehaviour
         {
             StageClear();
         }
-
-        if (++count % 60 == 0)
-        {
-            remainingTime--;
-        }
     }
 
     public void CountDown()
     {
-        if (stage % 2 == 1)
+        if (stage % 2 == 1 && !countingDown)
         {
+            countingDown = true;
+            remainingTime = time;
+            Invoke("_tick", 1f);
             Invoke("NextStage", time);
+        }
+    }
+
+    void _tick()
+    {
+        remainingTime--;
+        if (remainingTime > 0)
+        {
+            Invoke("_tick", 1f);
+        }
+        else
+        {
+            countingDown = false;
         }
     }
 

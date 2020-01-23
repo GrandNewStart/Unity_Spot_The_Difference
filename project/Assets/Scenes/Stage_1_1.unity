@@ -3803,6 +3803,7 @@ MonoBehaviour:
   paused: 0
   HUD: {fileID: 0}
   stageClear: {fileID: 0}
+  stageFail: {fileID: 0}
   pauseMenu: {fileID: 0}
   total_Text: {fileID: 0}
   remainingShots_Text: {fileID: 0}
@@ -5411,8 +5412,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   runSpeed: 7
-  walkInterval: 26
-  runInterval: 20
   jumpHeight: 5
   verticalVelocity: 0
   groundMask:
